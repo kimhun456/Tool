@@ -1,4 +1,4 @@
-package io.github.hyunjae.tool.presentation.ui.screens.profile
+package io.github.hyunjae.tool.presentation.ui.screens.habit
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,8 +8,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun ProfileScreen() {
+fun AddHabitScreen() {
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = "Profile Screen")
+        Text(text = "Add Habit Screen")
     }
 }

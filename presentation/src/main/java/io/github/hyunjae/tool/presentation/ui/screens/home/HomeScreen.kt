@@ -16,28 +16,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import kotlinx.coroutines.delay
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 import kotlin.random.Random
 
 @Composable
 fun HomeScreen() {
-    var currentTime by remember { mutableStateOf(LocalDateTime.now()) }
+    var currentTime by remember { mutableStateOf(Calendar.getInstance()) }
 
     LaunchedEffect(Unit) {
         while (true) {
-            currentTime = LocalDateTime.now()
+            currentTime = Calendar.getInstance()
             delay(1000) // Update every second
         }
     }
 
-    var currentMinute by remember { mutableStateOf(currentTime.minute) }
+    var currentMinute by remember { mutableStateOf(currentTime.get(Calendar.MINUTE)) }
     var targetColor by remember { mutableStateOf(Color.Black) }
     var startColorForMinute by remember { mutableStateOf(Color.Black) }
 
-    LaunchedEffect(currentTime.minute) {
-        if (currentTime.minute != currentMinute) {
-            currentMinute = currentTime.minute
+    LaunchedEffect(currentTime.get(Calendar.MINUTE)) {
+        if (currentTime.get(Calendar.MINUTE) != currentMinute) {
+            currentMinute = currentTime.get(Calendar.MINUTE)
             startColorForMinute = targetColor // The color at the end of the previous minute
             targetColor = Color(
                 red = Random.nextFloat(),
@@ -49,13 +50,17 @@ fun HomeScreen() {
     }
 
     val animatedColor by animateColorAsState(
-        targetValue = lerp(startColorForMinute, targetColor, currentTime.second / 59f),
+        targetValue = lerp(
+            startColorForMinute,
+            targetColor,
+            currentTime.get(Calendar.SECOND) / 59f
+        ),
         label = "clockColorAnimation"
     )
 
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Text(
-            text = currentTime.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
+            text = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(currentTime.time),
             style = MaterialTheme.typography.displayLarge,
             color = animatedColor
         )
