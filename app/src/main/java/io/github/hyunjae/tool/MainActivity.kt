@@ -14,7 +14,9 @@ import androidx.navigation.compose.rememberNavController
 import io.github.hyunjae.tool.presentation.ui.navigation.BottomNavigationBar
 import io.github.hyunjae.tool.presentation.ui.navigation.NavigationGraph
 import io.github.hyunjae.tool.presentation.ui.theme.ToolTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
