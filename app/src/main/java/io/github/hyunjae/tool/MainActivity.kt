@@ -11,15 +11,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import io.github.hyunjae.tool.presentation.ui.navigation.BottomNavigationBar
 import io.github.hyunjae.tool.presentation.ui.navigation.NavigationGraph
 import io.github.hyunjae.tool.presentation.ui.theme.ToolTheme
-import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Timber.d("MainActivity onCreate called")
         enableEdgeToEdge()
         setContent {
             ToolTheme {
@@ -31,6 +33,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen() {
+    Timber.d("MainScreen Composable called")
     val navController = rememberNavController()
     Scaffold(
         bottomBar = { BottomNavigationBar(navController = navController) }
