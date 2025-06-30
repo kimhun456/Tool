@@ -57,37 +57,37 @@
 
 **목표:** 모든 모듈 통합 및 애플리케이션 진입점 설정. Android Application 모듈.
 
-- [ ] **2.4.1. Application 클래스 정의**
+**2.4.1. Application 클래스 정의**
     - 의존성 주입 초기화
-- [ ] **2.4.2. MainActivity 설정**
+**2.4.2. MainActivity 설정**
     - Jetpack Compose Navigation Host 설정
     - 초기 화면 로드
 
 ## 3. 비기능적 요구사항 고려사항
 
-- [ ] **성능:** Room 데이터베이스 쿼리 최적화, Compose 리컴포지션 최소화.
-- [ ] **사용성:** Material Design 3 컴포넌트 적극 활용, 접근성 고려.
-- [ ] **호환성:** Android 8.0+ 기기 테스트.
-- [ ] **보안:** Room 암호화 (필요시), 데이터베이스 접근 권한 관리.
+**성능:** Room 데이터베이스 쿼리 최적화, Compose 리컴포지션 최소화.
+**사용성:** Material Design 3 컴포넌트 적극 활용, 접근성 고려.
+**호환성:** Android 8.0+ 기기 테스트.
+**보안:** Room 암호화 (필요시), 데이터베이스 접근 권한 관리.
 
 ## 4. 테스트 계획
 
-- [ ] **단위 테스트 (Unit Tests):**
+**단위 테스트 (Unit Tests):**
     - Domain 계층: 유스케이스 로직 테스트
     - Data 계층: 리포지토리 구현 및 DAO 테스트 (인메모리 DB 사용)
     - Presentation 계층: 뷰모델 로직 테스트
-- [ ] **통합 테스트 (Integration Tests):**
+**통합 테스트 (Integration Tests):**
     - Data 계층: Room 데이터베이스와의 실제 상호작용 테스트
     - Presentation 계층: UI와 뷰모델 간의 상호작용 테스트
-- [ ] **UI 테스트 (UI Tests):**
+**UI 테스트 (UI Tests):**
     - Jetpack Compose Test를 사용하여 화면별 UI 동작 테스트
 
 ## 5. 개발 순서 (Phased Approach)
 
-1.  [ ] **Domain 계층 구현:** 엔티티, 리포지토리 인터페이스, 유스케이스 정의.
-2.  [ ] **Data 계층 구현:** Room 데이터베이스 설정, DAO, 리포지토리 구현.
-3.  [ ] **Presentation 계층 구현 (HabitListScreen 우선):** 뷰모델, 습관 목록 화면 구현.
-4.  [ ] **App 계층 통합:** 기본 앱 구조 설정 및 습관 목록 화면 연결.
-5.  [ ] **Presentation 계층 구현 (AddEditHabitScreen):** 습관 추가/수정 화면 구현.
-6.  [ ] **테스트 코드 작성:** 각 계층별 단위 테스트 및 통합 테스트 작성.
-7.  [ ] **리팩토링 및 최적화:** 코드 리뷰, 성능 최적화, UI/UX 개선.
+1.  **Domain 계층 구현:** 엔티티, 리포지토리 인터페이스, 유스케이스 정의.
+2.  **Data 계층 구현:** Room 데이터베이스 설정, DAO, 리포지토리 구현.
+3.  **Presentation 계층 구현 (HabitListScreen 우선):** 뷰모델, 습관 목록 화면 구현.
+4.  **App 계층 통합:** 기본 앱 구조 설정 및 습관 목록 화면 연결.
+5.  **Presentation 계층 구현 (AddEditHabitScreen):** 습관 추가/수정 화면 구현.
+6.  **테스트 코드 작성:** 각 계층별 단위 테스트 및 통합 테스트 작성.
+7.  **리팩토링 및 최적화:** 코드 리뷰, 성능 최적화, UI/UX 개선.
